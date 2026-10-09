@@ -3,13 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        <%= title %>
-    </title>
-    <link rel="stylesheet" href="/style.css">
+    <title>Termekek</title>
+  <style>
+    .red {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
-    <h1><%= title %></h1>
-    Hello EJS!
+  <h1>Termekek</h1>
+
+  <a href="/filter">Szures kategoriak szerint</a>
+  <a href="/new">Uj termek felvetele</a>
+
+  <table>
+    <tr>
+      <th>termek neve</th>
+      <th>kategoria</th>
+      <th>ar</th>
+      <th>raktárkeszlet</th>
+    </tr>
+
+
+
+    
+    <% products.forEach(product => { %>
+      <tr class="<%= product.stock === 0 ? 'red' : '' %>">
+        <td><%= product.name %></td>
+        <td><%= product.category %></td>
+        <td><%= product.price %> Ft</td>
+        <td class="<%= product.stock < 5 ? 'red' : '' %>">
+          <%= product.stock %>
+        </td>
+      </tr>
+    <% }); %>
+  </table>
 </body>
 </html>

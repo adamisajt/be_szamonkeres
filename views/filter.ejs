@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>szures</title>
+  <style>
+    .red {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Szures kategoriak szerint</h1>
+
+  <a href="/">Vissza a fooldalra</a>
+
+  <form action="/filter" method="get">
+    <select name="category">
+      <option value="elektronika">elektronika</option>
+      <option value="ruházat">ruházat</o ption>
+      <option value="könyv">könyv</option>
+      <option value="játék">játék</option>
+    </select>
+
+    <button type="submit">Szures</button>
+  </form>
+
+  <table>
+    <tr>
+      <th>Termek neve</th>
+      <th>kategoria</th>
+      <th>Ar</th>
+      <th>Raktárkészlet</th>
+    </tr>
+
+    <% products.forEach(product => { %>
+      <tr class="<%= product.stock === 0 ? 'red' : '' %>">
+        <td><%= product.name %></td>
+        <td><%= product.category %></td>
+        <td><%= product.price %> Ft</td>
+        <td class="<%= product.stock < 5 ? 'red' : '' %>">
+          <%= product.stock %>
+        </td>
+      </tr>
+    <% }); %>
+  </table>
+</body>
+</html>

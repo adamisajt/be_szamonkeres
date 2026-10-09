@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uj termekek</title>
+</head>
+<body>
+  <h1>Uj termek felvetele</h1>
+
+  <a href="/">Vissza a fooldalra</a>
+
+  <form action="/new" method="post">
+    <p>
+      Termek neve:
+      <input type="text" name="name">
+    </p>
+
+    <p>
+      KAtegoria:
+      <select name="category">
+        <option value="elektronika">elektronika</option>
+        <option value="ruházat">ruházat</option>
+        <option value="könyv">könyv</option>
+        <option value="játék">játék</option>
+      </select>
+    </p>
+
+    <p>
+      Ár:
+      <input type="number" name="price">
+    </p>
+
+    <p>
+      Raktárkeszlet:
+      <input type="number" name="stock">
+    </p>
+
+    <button type="submit">Felvetel</button>
+  </form>
+
+  <% if (success) { %>
+    <p style="color: green;">Sikeres felvetel</p>
+  <% } %>
+</body>
+</html>
